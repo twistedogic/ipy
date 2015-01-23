@@ -1,0 +1,177 @@
+# price-transform-functions
+data['AVGPRICE'] = talib.AVGPRICE(open, high, low, close) # Average Price
+data['MEDPRICE'] = talib.MEDPRICE(high, low) # Median Price
+data['TYPPRICE'] = talib.TYPPRICE(high, low, close) # Typical Price
+data['WCLPRICE'] = talib.WCLPRICE(high, low, close) # Weighted Close Price
+
+# cycle-indicator-functions
+data['HT_DCPERIOD'] = talib.HT_DCPERIOD(close) # Hilbert Transform - Dominant Cycle Period
+data['HT_DCPHASE'] = talib.HT_DCPHASE(close) # Hilbert Transform - Dominant Cycle Phase
+data['inphase'],data['quadrature'] = talib.HT_PHASOR(close) # Hilbert Transform - Phasor Components
+data['sine'],data['leadsine'] = talib.HT_SINE(close) # Hilbert Transform - SineWave
+data['HT_TRENDMODE'] = talib.HT_TRENDMODE(close) # Hilbert Transform - Trend vs Cycle Mode
+
+# overlap-studies-functions
+data['upperband'],data['middleband'],data['lowerband'] = talib.BBANDS(close, timeperiod=5, nbdevup=2, nbdevdn=2, matype=0) #Bollinger Bands
+data['DEMA'] = talib.DEMA(close, timeperiod=30) #Double Exponential Moving Average
+data['EMA'] = talib.EMA(close, timeperiod=30) #Exponential Moving Average
+data['HT_TRENDLINE'] = talib.HT_TRENDLINE(close) #Hilbert Transform - Instantaneous Trendline
+data['KAMA'] = talib.KAMA(close, timeperiod=30) #Kaufman Adaptive Moving Average
+data['MA'] = talib.MA(close, timeperiod=30, matype=0) #Moving average
+data['mama'],data['fama'] = talib.MAMA(close, fastlimit=0, slowlimit=0) #MESA Adaptive Moving Average
+data['MAVP'] = talib.MAVP(close, minperiod=2, maxperiod=30, matype=0) #Moving average with variable period
+data['MIDPOINT'] = talib.MIDPOINT(close, timeperiod=14) #MidPoint over period
+data['MIDPRICE'] = talib.MIDPRICE(high, low, timeperiod=14) #Midpoint Price over period
+data['SAR'] = talib.SAR(high, low, acceleration=0, maximum=0) #Parabolic SAR
+data['SAREXT'] = talib.SAREXT(high, low, startvalue=0, offsetonreverse=0, accelerationinitlong=0, accelerationlong=0, accelerationmaxlong=0, accelerationinitshort=0, accelerationshort=0, accelerationmaxshort=0) #Parabolic SAR - Extended
+data['SMA'] = talib.SMA(close, timeperiod=30) #Simple Moving Average
+data['T3'] = talib.T3(close, timeperiod=5, vfactor=0) #Triple Exponential Moving Average (T3)
+data['TEMA'] = talib.TEMA(close, timeperiod=30) #Triple Exponential Moving Average
+data['TRIMA'] = talib.TRIMA(close, timeperiod=30) #Triangular Moving Average
+data['WMA'] = talib.WMA(close, timeperiod=30) #Weighted Moving Average
+
+# volume-indicator-functions
+data['AD'] = talib.AD(high, low, close, volume) # Chaikin A/D Line
+data['ADOSC'] = talib.ADOSC(high, low, close, volume, fastperiod=3, slowperiod=10) # Chaikin A/D Oscillator
+data['OBV'] = talib.OBV(volume) # On Balance Volume
+
+# momentum-indicator-functions
+data['ADX'] = talib.ADX(high, low, close, timeperiod=14) #Average Directional Movement Index
+data['ADXR'] = talib.ADXR(high, low, close, timeperiod=14) #Average Directional Movement Index Rating
+data['APO'] = talib.APO(close, fastperiod=12, slowperiod=26, matype=0) #Absolute Price Oscillator
+data['aroondown'],data['aroonup'] = talib.AROON(high, low, timeperiod=14) #Aroon
+data['AROONOSC'] = talib.AROONOSC(high, low, timeperiod=14) #Aroon Oscillator
+data['BOP'] = talib.BOP(open, high, low, close) #Balance Of Power
+data['CCI'] = talib.CCI(high, low, close, timeperiod=14) #Commodity Channel Index
+data['CMO'] = talib.CMO(close, timeperiod=14) #Chande Momentum Oscillator
+data['DX'] = talib.DX(high, low, close, timeperiod=14) #Directional Movement Index
+data['macd'],data['macdsignal'],data['macdhist'] = talib.MACD(close, fastperiod=12, slowperiod=26, signalperiod=9) #Moving Average Convergence/Divergence
+data['macdExt'],data['macdsignalExt'],data['macdhistExt'] = talib.MACDEXT(close, fastperiod=12, fastmatype=0, slowperiod=26, slowmatype=0, signalperiod=9, signalmatype=0) #MACD with controllable MA type
+data['macdFix'],data['macdsignalFix'],data['macdhistFix'] = talib.MACDFIX(close, signalperiod=9) #Moving Average Convergence/Divergence Fix 12/26
+data['MFI'] = talib.MFI(high, low, close, volume, timeperiod=14) #Money Flow Index
+data['MINUS_DI'] = talib.MINUS_DI(high, low, close, timeperiod=14) #Minus Directional Indicator
+data['MINUS_DM'] = talib.MINUS_DM(high, low, timeperiod=14) #Minus Directional Movement
+data['MOM'] = talib.MOM(close, timeperiod=10) #Momentum
+data['PLUS_DI'] = talib.PLUS_DI(high, low, close, timeperiod=14) #Plus Directional Indicator
+data['PLUS_DM'] = talib.PLUS_DM(high, low, timeperiod=14) #Plus Directional Movement
+data['PPO'] = talib.PPO(close, fastperiod=12, slowperiod=26, matype=0) #Percentage Price Oscillator
+data['ROC'] = talib.ROC(close, timeperiod=10) #Rate of change : ((price/prevPrice)-1)*100
+data['ROCP'] = talib.ROCP(close, timeperiod=10) #Rate of change Percentage: (price-prevPrice)/prevPrice
+data['ROCR'] = talib.ROCR(close, timeperiod=10) #Rate of change ratio: (price/prevPrice)
+data['ROCR100'] = talib.ROCR100(close, timeperiod=10) #Rate of change ratio 100 scale: (price/prevPrice)*100
+data['RSI'] = talib.RSI(close, timeperiod=14) #Relative Strength Index
+data['slowk'],data['slowd'] = talib.STOCH(high, low, close, fastk_period=5, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0) #Stochastic
+data['fastk'],data['fastd'] = talib.STOCHF(high, low, close, fastk_period=5, fastd_period=3, fastd_matype=0) #Stochastic Fast
+data['fastkRsi'],data['fastdRsi'] = talib.STOCHRSI(close, timeperiod=14, fastk_period=5, fastd_period=3, fastd_matype=0) #Stochastic Relative Strength Index
+data['TRIX'] = talib.TRIX(close, timeperiod=30) #1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
+data['ULTOSC'] = talib.ULTOSC(high, low, close, timeperiod1=7, timeperiod2=14, timeperiod3=28) #Ultimate Oscillator
+data['WILLR'] = talib.WILLR(high, low, close, timeperiod=14) #Williams' %R
+
+# pattern-recognition-functions
+data['CDL2CROWS'] = talib.CDL2CROWS(open, high, low, close) # Two Crows
+data['CDL3BLACKCROWS'] = talib.CDL3BLACKCROWS(open, high, low, close) # Three Black Crows
+data['CDL3INSIDE'] = talib.CDL3INSIDE(open, high, low, close) # Three Inside Up/Down
+data['CDL3LINESTRIKE'] = talib.CDL3LINESTRIKE(open, high, low, close) # Three-Line Strike
+data['CDL3OUTSIDE'] = talib.CDL3OUTSIDE(open, high, low, close) # Three Outside Up/Down
+data['CDL3STARSINSOUTH'] = talib.CDL3STARSINSOUTH(open, high, low, close) # Three Stars In The South
+data['CDL3WHITESOLDIERS'] = talib.CDL3WHITESOLDIERS(open, high, low, close) # Three Advancing White Soldiers
+data['CDLABANDONEDBABY'] = talib.CDLABANDONEDBABY(open, high, low, close, penetration=0) # Abandoned Baby
+data['CDLADVANCEBLOCK'] = talib.CDLADVANCEBLOCK(open, high, low, close) # Advance Block
+data['CDLBELTHOLD'] = talib.CDLBELTHOLD(open, high, low, close) # Belt-hold
+data['CDLBREAKAWAY'] = talib.CDLBREAKAWAY(open, high, low, close) # Breakaway
+data['CDLCLOSINGMARUBOZU'] = talib.CDLCLOSINGMARUBOZU(open, high, low, close) # Closing Marubozu
+data['CDLCONCEALBABYSWALL'] = talib.CDLCONCEALBABYSWALL(open, high, low, close) # Concealing Baby Swallow
+data['CDLCOUNTERATTACK'] = talib.CDLCOUNTERATTACK(open, high, low, close) # Counterattack
+data['CDLDARKCLOUDCOVER'] = talib.CDLDARKCLOUDCOVER(open, high, low, close, penetration=0) # Dark Cloud Cover
+data['CDLDOJI'] = talib.CDLDOJI(open, high, low, close) # Doji
+data['CDLDOJISTAR'] = talib.CDLDOJISTAR(open, high, low, close) # Doji Star
+data['CDLDRAGONFLYDOJI'] = talib.CDLDRAGONFLYDOJI(open, high, low, close) # Dragonfly Doji
+data['CDLENGULFING'] = talib.CDLENGULFING(open, high, low, close) # Engulfing Pattern
+data['CDLEVENINGDOJISTAR'] = talib.CDLEVENINGDOJISTAR(open, high, low, close, penetration=0) # Evening Doji Star
+data['CDLEVENINGSTAR'] = talib.CDLEVENINGSTAR(open, high, low, close, penetration=0) # Evening Star
+data['CDLGAPSIDESIDEWHITE'] = talib.CDLGAPSIDESIDEWHITE(open, high, low, close) # Up/Down-gap side-by-side white lines
+data['CDLGRAVESTONEDOJI'] = talib.CDLGRAVESTONEDOJI(open, high, low, close) # Gravestone Doji
+data['CDLHAMMER'] = talib.CDLHAMMER(open, high, low, close) # Hammer
+data['CDLHANGINGMAN'] = talib.CDLHANGINGMAN(open, high, low, close) # Hanging Man
+data['CDLHARAMI'] = talib.CDLHARAMI(open, high, low, close) # Harami Pattern
+data['CDLHARAMICROSS'] = talib.CDLHARAMICROSS(open, high, low, close) # Harami Cross Pattern
+data['CDLHIGHWAVE'] = talib.CDLHIGHWAVE(open, high, low, close) # High-Wave Candle
+data['CDLHIKKAKE'] = talib.CDLHIKKAKE(open, high, low, close) # Hikkake Pattern
+data['CDLHIKKAKEMOD'] = talib.CDLHIKKAKEMOD(open, high, low, close) # Modified Hikkake Pattern
+data['CDLHOMINGPIGEON'] = talib.CDLHOMINGPIGEON(open, high, low, close) # Homing Pigeon
+data['CDLIDENTICAL3CROWS'] = talib.CDLIDENTICAL3CROWS(open, high, low, close) # Identical Three Crows
+data['CDLINNECK'] = talib.CDLINNECK(open, high, low, close) # In-Neck Pattern
+data['CDLINVERTEDHAMMER'] = talib.CDLINVERTEDHAMMER(open, high, low, close) # Inverted Hammer
+data['CDLKICKING'] = talib.CDLKICKING(open, high, low, close) # Kicking
+data['CDLKICKINGBYLENGTH'] = talib.CDLKICKINGBYLENGTH(open, high, low, close) # Kicking - bull/bear determined by the longer marubozu
+data['CDLLADDERBOTTOM'] = talib.CDLLADDERBOTTOM(open, high, low, close) # Ladder Bottom
+data['CDLLONGLEGGEDDOJI'] = talib.CDLLONGLEGGEDDOJI(open, high, low, close) # Long Legged Doji
+data['CDLLONGLINE'] = talib.CDLLONGLINE(open, high, low, close) # Long Line Candle
+data['CDLMARUBOZU'] = talib.CDLMARUBOZU(open, high, low, close) # Marubozu
+data['CDLMATCHINGLOW'] = talib.CDLMATCHINGLOW(open, high, low, close) # Matching Low
+data['CDLMATHOLD'] = talib.CDLMATHOLD(open, high, low, close, penetration=0) # Mat Hold
+data['CDLMORNINGDOJISTAR'] = talib.CDLMORNINGDOJISTAR(open, high, low, close, penetration=0) # Morning Doji Star
+data['CDLMORNINGSTAR'] = talib.CDLMORNINGSTAR(open, high, low, close, penetration=0) # Morning Star
+data['CDLONNECK'] = talib.CDLONNECK(open, high, low, close) # On-Neck Pattern
+data['CDLPIERCING'] = talib.CDLPIERCING(open, high, low, close) # Piercing Pattern
+data['CDLRICKSHAWMAN'] = talib.CDLRICKSHAWMAN(open, high, low, close) # Rickshaw Man
+data['CDLRISEFALL3METHODS'] = talib.CDLRISEFALL3METHODS(open, high, low, close) # Rising/Falling Three Methods
+data['CDLSEPARATINGLINES'] = talib.CDLSEPARATINGLINES(open, high, low, close) # Separating Lines
+data['CDLSHOOTINGSTAR'] = talib.CDLSHOOTINGSTAR(open, high, low, close) # Shooting Star
+data['CDLSHORTLINE'] = talib.CDLSHORTLINE(open, high, low, close) # Short Line Candle
+data['CDLSPINNINGTOP'] = talib.CDLSPINNINGTOP(open, high, low, close) # Spinning Top
+data['CDLSTALLEDPATTERN'] = talib.CDLSTALLEDPATTERN(open, high, low, close) # Stalled Pattern
+data['CDLSTICKSANDWICH'] = talib.CDLSTICKSANDWICH(open, high, low, close) # Stick Sandwich
+data['CDLTAKURI'] = talib.CDLTAKURI(open, high, low, close) # Takuri (Dragonfly Doji with very long lower shadow)
+data['CDLTASUKIGAP'] = talib.CDLTASUKIGAP(open, high, low, close) # Tasuki Gap
+data['CDLTHRUSTING'] = talib.CDLTHRUSTING(open, high, low, close) # Thrusting Pattern
+data['CDLTRISTAR'] = talib.CDLTRISTAR(open, high, low, close) # Tristar Pattern
+data['CDLUNIQUE3RIVER'] = talib.CDLUNIQUE3RIVER(open, high, low, close) # Unique 3 River
+data['CDLUPSIDEGAP2CROWS'] = talib.CDLUPSIDEGAP2CROWS(open, high, low, close) # Upside Gap Two Crows
+data['CDLXSIDEGAP3METHODS'] = talib.CDLXSIDEGAP3METHODS(open, high, low, close) # Upside/Downside Gap Three Methods
+
+# statistic-functions
+data['BETA'] = talib.BETA(high, low, timeperiod=5) # Beta
+data['CORREL'] = talib.CORREL(high, low, timeperiod=30) # Pearson's Correlation Coefficient (r)
+data['LINEARREG'] = talib.LINEARREG(close, timeperiod=14) # Linear Regression
+data['LINEARREG_ANGLE'] = talib.LINEARREG_ANGLE(close, timeperiod=14) # Linear Regression Angle
+data['LINEARREG_INTERCEPT'] = talib.LINEARREG_INTERCEPT(close, timeperiod=14) # Linear Regression Intercept
+data['LINEARREG_SLOPE'] = talib.LINEARREG_SLOPE(close, timeperiod=14) # Linear Regression Slope
+data['STDDEV'] = talib.STDDEV(close, timeperiod=5, nbdev=1) # Standard Deviation
+data['TSF'] = talib.TSF(close, timeperiod=14) # Time Series Forecast
+data['VAR'] = talib.VAR(close, timeperiod=5, nbdev=1) # Variance
+
+# math-transform-functions
+data['ACOS'] = talib.ACOS(close) # Vector Trigonometric ACos
+data['ASIN'] = talib.ASIN(close) # Vector Trigonometric ASin
+data['ATAN'] = talib.ATAN(close) # Vector Trigonometric ATan
+data['CEIL'] = talib.CEIL(close) # Vector Ceil
+data['COS'] = talib.COS(close) # Vector Trigonometric Cos
+data['COSH'] = talib.COSH(close) # Vector Trigonometric Cosh
+data['EXP'] = talib.EXP(close) # Vector Arithmetic Exp
+data['FLOOR'] = talib.FLOOR(close) # Vector Floor
+data['LN'] = talib.LN(close) # Vector Log Natural
+data['LOG10'] = talib.LOG10(close) # Vector Log10
+data['SIN'] = talib.SIN(close) # Vector Trigonometric Sin
+data['SINH'] = talib.SINH(close) # Vector Trigonometric Sinh
+data['SQRT'] = talib.SQRT(close) # Vector Square Root
+data['TAN'] = talib.TAN(close) # Vector Trigonometric Tan
+data['TANH'] = talib.TANH(close) # Vector Trigonometric Tanh
+
+# math-operator-functions
+data['ADD'] = talib.ADD(high, low) # Vector Arithmetic Add
+data['DIV'] = talib.DIV(high, low) # Vector Arithmetic Div
+data['MAX'] = talib.MAX(close, timeperiod=30) # Highest value over a specified period
+data['MAXINDEX'] = talib.MAXINDEX(close, timeperiod=30) # Index of highest value over a specified period
+data['MIN'] = talib.MIN(close, timeperiod=30) # Lowest value over a specified period
+data['MININDEX'] = talib.MININDEX(close, timeperiod=30) # Index of lowest value over a specified period
+data['min'],data['max'] = talib.MINMAX(close, timeperiod=30) # Lowest and highest values over a specified period
+data['minidx'],data['maxidx'] = talib.MINMAXINDEX(close, timeperiod=30) # Indexes of lowest and highest values over a specified period
+data['MULT'] = talib.MULT(high, low) # Vector Arithmetic Mult
+data['SUB'] = talib.SUB(high, low) # Vector Arithmetic Substraction
+data['SUM'] = talib.SUM(close, timeperiod=30) # Summation
+
+# volatility-indicator-functions
+data['ATR'] = talib.ATR(high, low, close, timeperiod=14) # Average True Range
+data['NATR'] = talib.NATR(high, low, close, timeperiod=14) # Normalized Average True Range
+data['TRANGE'] = talib.TRANGE(high, low, close) # True Range
